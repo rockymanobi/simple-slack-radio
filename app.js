@@ -20,5 +20,10 @@ setTimeout(()=>{
 },2000)
 
 function play(text) {
-  exec(`say "${text.replace(/<(?:[^<>]|<[^>]*>)*>/g,"")}"`)
+  exec(`say "${normilizeText(text)}"`)
+}
+
+function normilizeText(text) {
+  if (!text) { return '' }
+  return text.replace(/<(?:[^<>]|<[^>]*>)*>/g,'')
 }
